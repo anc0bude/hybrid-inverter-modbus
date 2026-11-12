@@ -1,0 +1,1734 @@
+# Deye SUN-xK-SG04LP3 (3-phasig, 2 MPPT) - vollstaendig. GENERIERT von tools/build_profile.py
+# Bisherige Sensoren aus deye_sg04lp3.yaml unveraendert; neue Werte nach davidrapan/ha-solarman deye_p3.yaml (MIT).
+requests:
+- start: 0
+  end: 119
+  mb_functioncode: 3
+- start: 120
+  end: 237
+  mb_functioncode: 3
+- start: 340
+  end: 341
+  mb_functioncode: 3
+- start: 500
+  end: 618
+  mb_functioncode: 3
+- start: 624
+  end: 697
+  mb_functioncode: 3
+parameters:
+- group: solar
+  items:
+  - name: PV1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 672
+    icon: mdi:solar-power
+  - name: PV2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 673
+    icon: mdi:solar-power
+  - name: PV1 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 676
+    icon: mdi:solar-power
+  - name: PV2 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 678
+    icon: mdi:solar-power
+  - name: PV1 Current
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 0.1
+    rule: 1
+    registers:
+    - 677
+    icon: mdi:solar-power
+  - name: PV2 Current
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 0.1
+    rule: 1
+    registers:
+    - 679
+    icon: mdi:solar-power
+  - name: Daily Production
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 529
+    icon: mdi:solar-power
+    validation:
+      max: 100
+  - name: Total Production
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 534
+    - 535
+    icon: mdi:solar-power
+- group: Battery
+  items:
+  - name: Battery Equalization V
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 99
+    icon: mdi:battery
+  - name: Battery Absorption V
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 100
+    icon: mdi:battery
+  - name: Battery Float V
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 101
+    icon: mdi:battery
+  - name: Battery Capacity
+    class: battery
+    state_class: measurement
+    uom: Ah
+    scale: 1
+    rule: 1
+    registers:
+    - 102
+    icon: mdi:battery
+  - name: Battery Empty V
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 102
+    icon: mdi:battery
+  - name: Battery Max A Charge
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 1
+    rule: 1
+    registers:
+    - 108
+    icon: mdi:battery
+  - name: Battery Max A Discharge
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 1
+    rule: 1
+    registers:
+    - 109
+    icon: mdi:battery
+  - name: Daily Battery Charge
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 514
+    icon: mdi:battery-plus
+  - name: Daily Battery Discharge
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 515
+    icon: mdi:battery-plus
+  - name: Total Battery Charge
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 516
+    - 517
+    icon: mdi:battery-plus
+  - name: Total Battery Discharge
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 518
+    - 519
+    icon: mdi:battery-minus
+  - name: Battery Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 590
+    icon: mdi:battery
+  - name: Battery Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 587
+    icon: mdi:battery
+  - name: Battery SOC
+    class: battery
+    state_class: measurement
+    uom: '%'
+    scale: 1
+    rule: 1
+    registers:
+    - 588
+    icon: mdi:battery
+    validation:
+      min: 0
+      max: 101
+  - name: Battery Current
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 0.01
+    rule: 2
+    registers:
+    - 591
+    icon: mdi:battery
+  - name: Battery Temperature
+    class: temperature
+    state_class: measurement
+    uom: °C
+    scale: 0.1
+    rule: 1
+    registers:
+    - 586
+    icon: mdi:battery
+    offset: 1000
+    validation:
+      min: 1
+      max: 99
+- group: Grid
+  items:
+  - name: Total Grid Power
+    class: ''
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 625
+    icon: mdi:transmission-tower
+  - name: Grid Voltage L1
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 598
+    icon: mdi:transmission-tower
+  - name: Grid Voltage L2
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 599
+    icon: mdi:transmission-tower
+  - name: Grid Voltage L3
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 600
+    icon: mdi:transmission-tower
+  - name: Internal CT L1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 604
+    icon: mdi:transmission-tower
+  - name: Internal CT L2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 605
+    icon: mdi:transmission-tower
+  - name: Internal CT L3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 606
+    icon: mdi:transmission-tower
+  - name: External CT L1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 616
+    icon: mdi:transmission-tower
+  - name: External CT L2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 617
+    icon: mdi:transmission-tower
+  - name: External CT L3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 618
+    icon: mdi:transmission-tower
+  - name: Daily Energy Bought
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 520
+    icon: mdi:transmission-tower-export
+  - name: Total Energy Bought
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 522
+    - 523
+    icon: mdi:transmission-tower-export
+  - name: Daily Energy Sold
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 521
+    icon: mdi:transmission-tower-import
+  - name: Total Energy Sold
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 524
+    - 525
+    icon: mdi:transmission-tower-import
+  - name: Total Grid Production
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 4
+    registers:
+    - 524
+    - 525
+    icon: mdi:transmission-tower
+  - name: Grid L3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    rule: 4
+    registers:
+    - 624
+    - 689
+    icon: mdi:transmission-tower
+- group: Upload
+  items:
+  - name: Total Load Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 653
+    icon: mdi:lightning-bolt-outline
+  - name: Load L1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 650
+    icon: mdi:lightning-bolt-outline
+  - name: Load L2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 651
+    icon: mdi:lightning-bolt-outline
+  - name: Load L3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 652
+    icon: mdi:lightning-bolt-outline
+  - name: Load Voltage L1
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 644
+    icon: mdi:lightning-bolt-outline
+  - name: Load Voltage L2
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 645
+    icon: mdi:lightning-bolt-outline
+  - name: Load Voltage L3
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 646
+    icon: mdi:lightning-bolt-outline
+  - name: Daily Load Consumption
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 1
+    registers:
+    - 526
+    icon: mdi:lightning-bolt-outline
+  - name: Total Load Consumption
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 527
+    - 528
+    icon: mdi:lightning-bolt-outline
+- group: Inverter
+  items:
+  - name: Current L1
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 0.01
+    rule: 2
+    registers:
+    - 630
+    icon: mdi:home-lightning-bolt
+  - name: Current L2
+    class: current
+    state_class: measurement
+    uom: A
+    scale: 0.01
+    rule: 2
+    registers:
+    - 631
+    icon: mdi:home-lightning-bolt
+  - name: Current L3
+    class: current
+    uom: A
+    scale: 0.01
+    rule: 2
+    registers:
+    - 632
+    icon: mdi:home-lightning-bolt
+  - name: Inverter L1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 633
+    icon: mdi:home-lightning-bolt
+  - name: Inverter L2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 634
+    icon: mdi:home-lightning-bolt
+  - name: Inverter L3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 635
+    icon: mdi:home-lightning-bolt
+  - name: DC Temperature
+    class: temperature
+    state_class: measurement
+    uom: °C
+    scale: 0.1
+    rule: 2
+    registers:
+    - 540
+    icon: mdi:thermometer
+    offset: 1000
+  - name: AC Temperature
+    class: temperature
+    state_class: measurement
+    uom: °C
+    scale: 0.1
+    rule: 2
+    registers:
+    - 541
+    icon: mdi:thermometer
+    offset: 1000
+  - name: Inverter ID
+    class: ''
+    uom: ''
+    scale: 1
+    rule: 5
+    registers:
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+  - name: Communication Board Version No.
+    class: ''
+    uom: ''
+    scale: 1
+    rule: 1
+    registers:
+    - 17
+  - name: Control Board Version No.
+    class: ''
+    uom: ''
+    scale: 1
+    rule: 1
+    registers:
+    - 13
+- group: SmartLoad
+  items:
+  - name: SmartLoad Enable Status
+    class: ''
+    uom: ''
+    scale: 1
+    rule: 1
+    registers:
+    - 133
+    icon: mdi:lightning-bolt-outline
+    lookup:
+    - key: 0
+      value: GEN Use
+    - key: 1
+      value: SMART Load output
+    - key: 2
+      value: Microinverter
+  - name: Phase voltage of Gen port A
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 661
+    icon: mdi:home-lightning-bolt
+  - name: Phase voltage of Gen port B
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 662
+    icon: mdi:home-lightning-bolt
+  - name: Phase voltage of Gen port C
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 663
+    icon: mdi:home-lightning-bolt
+  - name: Phase power of Gen port A
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 664
+    - 668
+    icon: mdi:home-lightning-bolt
+    validation:
+      min: 0
+      max: 12000
+  - name: Phase power of Gen port B
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 665
+    - 669
+    icon: mdi:home-lightning-bolt
+    validation:
+      min: 0
+      max: 12000
+  - name: Phase power of Gen port C
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 666
+    - 670
+    icon: mdi:home-lightning-bolt
+    validation:
+      min: 0
+      max: 12000
+  - name: Total Power of Gen port
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 667
+    - 671
+    icon: mdi:home-l1ghtning-bolt
+    validation:
+      min: 0
+      max: 12000
+  - name: Generator daily power generation
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 536
+    icon: mdi:transmission-tower-import
+  - name: Generator total power generation
+    class: energy
+    state_class: total_increasing
+    uom: kWh
+    scale: 0.1
+    rule: 3
+    registers:
+    - 537
+    - 538
+    icon: mdi:transmission-tower-import
+- group: Alert
+  items:
+  - name: Alert
+    class: ''
+    uom: ''
+    scale: 1
+    rule: 6
+    registers:
+    - 553
+    - 554
+    - 555
+    - 556
+    - 557
+    - 558
+- group: Info
+  items:
+  - name: Device
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 0
+    icon: mdi:information
+    lookup:
+    - key: 0
+      value: Unknown
+    - key:
+      - 2
+      - 512
+      value: String Inverter
+    - key:
+      - 3
+      - 768
+      value: Single-Phase Hybrid Inverter
+    - key:
+      - 4
+      - 1024
+      value: Microinverter
+    - key:
+      - 5
+      - 1280
+      value: LV 3-Phase Hybrid Inverter
+    - key: 6
+      value: HV 3-Phase Hybrid Inverter
+    - key:
+      - 7
+      - 1536
+      value: HV 3-Phase Inverter 6-15kw
+    - key:
+      - 8
+      - 1537
+      value: HV 3-Phase Inverter 20-50kw
+    - key: 259
+      value: Off-Grid Inverter
+    - key: 260
+      value: Energy Storage System
+- group: Control
+  items:
+  - name: Self-check time
+    class: ''
+    uom: s
+    rule: 1
+    registers:
+    - 61
+  - name: ''
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 80
+- group: Settings
+  items:
+  - name: Battery Control Mode
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 98
+    icon: mdi:battery
+    lookup:
+    - key: 0
+      value: Lead-Battery, four-stage charging method
+    - key: 1
+      value: Lithium
+  - name: Battery Empty
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 103
+    icon: mdi:battery
+  - name: Zero Export power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 2
+    registers:
+    - 104
+    icon: mdi:transmission-tower
+  - name: Battery Equalization Cycle
+    class: duration
+    state_class: measurement
+    uom: d
+    rule: 1
+    registers:
+    - 105
+    icon: mdi:battery
+  - name: Battery Equalization Time
+    class: duration
+    state_class: measurement
+    uom: h
+    scale: 0.5
+    rule: 1
+    registers:
+    - 106
+    icon: mdi:battery
+  - name: Battery Temperature Compensation
+    class: ''
+    state_class: measurement
+    uom: mV/*C
+    rule: 2
+    registers:
+    - 107
+    icon: mdi:battery
+  - name: Battery Operation Mode
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 111
+    icon: mdi:battery
+    lookup:
+    - key: 0
+      value: Voltage
+    - key: 1
+      value: Capacity
+    - key: 2
+      value: No Battery
+  - name: Battery Wake Up
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 129
+  - name: Battery Resistance
+    class: ''
+    state_class: measurement
+    uom: mΩ
+    rule: 1
+    registers:
+    - 113
+    icon: mdi:battery
+  - name: Battery Charging efficiency
+    class: ''
+    state_class: measurement
+    uom: '%'
+    scale: 0.1
+    rule: 1
+    registers:
+    - 114
+    icon: mdi:battery
+    validation:
+      min: 0
+      max: 100
+  - name: Battery Shutdown SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 115
+    icon: mdi:battery
+  - name: Battery Restart SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 116
+    icon: mdi:battery
+  - name: Battery Low SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 117
+    icon: mdi:battery
+  - name: Battery Shutdown Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 118
+    icon: mdi:battery
+  - name: Battery Restart Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 119
+    icon: mdi:battery
+  - name: Battery Low Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 120
+    icon: mdi:battery
+  - name: Generator Operating Time
+    class: duration
+    state_class: measurement
+    uom: h
+    scale: 0.1
+    rule: 1
+    registers:
+    - 121
+    icon: mdi:generator-stationary
+  - name: Generator Cooling Time
+    class: duration
+    state_class: measurement
+    uom: h
+    scale: 0.1
+    rule: 1
+    registers:
+    - 122
+    icon: mdi:generator-stationary
+  - name: Battery Generator Charging Start Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 123
+    icon: mdi:battery
+  - name: Battery Generator Charging Start
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 124
+    icon: mdi:battery
+  - name: Battery Generator Charging Current
+    class: current
+    state_class: measurement
+    uom: A
+    rule: 1
+    registers:
+    - 125
+    icon: mdi:current-dc
+  - name: Battery Grid Charging Start Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 126
+    icon: mdi:battery
+  - name: Battery Grid Charging Start
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 127
+    icon: mdi:battery
+  - name: Battery Grid Charging Current
+    class: current
+    state_class: measurement
+    uom: A
+    rule: 1
+    registers:
+    - 128
+    icon: mdi:current-dc
+  - name: Battery Grid Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 130
+    icon: mdi:battery
+  - name: Generator
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 132
+  - name: SmartLoad Off Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 134
+    icon: mdi:battery
+  - name: SmartLoad Off
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 135
+    icon: mdi:lightning-bolt-circle
+  - name: SmartLoad On Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 136
+    icon: mdi:battery
+  - name: SmartLoad On
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 137
+    icon: mdi:lightning-bolt-circle
+- group: Grid Parameters
+  items:
+  - name: Grid Voltage
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 138
+    lookup:
+    - key: 0
+      value: LN:220VAC LL:380VAC
+    - key: 1
+      value: LN:230VAC LL:398VAC
+    - key: 2
+      value: LN:240VAC LL:415VAC
+    - key: 3
+      value: LN:120VAC LL:208VAC
+    - key: 4
+      value: LN:133VAC LL:220VAC
+    - key: 5
+      value: LN:100VAC LL:173VAC
+  - name: Generator Min PV Power
+    class: power
+    state_class: measurement
+    uom: W
+    rule: 1
+    registers:
+    - 139
+    icon: mdi:solar-power-variant
+  - name: Charging Signal
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 140
+    lookup:
+    - key: 0
+      value: Normal
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+- group: Work Mode
+  items:
+  - name: Energy Pattern
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 141
+    lookup:
+    - key: 0
+      value: Battery First
+    - key: 1
+      value: Load First
+  - name: Work Mode
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 142
+    lookup:
+    - key: 0
+      value: Export First
+    - key: 1
+      value: Zero Export To Load
+    - key: 2
+      value: Zero Export To CT
+  - name: Export Surplus Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 143
+  - name: Export Surplus
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 145
+  - name: Export Asymmetry
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 237
+  - name: PV Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 340
+    icon: mdi:solar-power-variant
+  - name: MPPT multi-point scanning
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 341
+  - name: Time of Use
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 146
+  - name: Program 1 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 148
+    icon: mdi:sun-clock
+  - name: Program 2 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 149
+    icon: mdi:sun-clock
+  - name: Program 3 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 150
+    icon: mdi:sun-clock
+  - name: Program 4 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 151
+    icon: mdi:sun-clock
+  - name: Program 5 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 152
+    icon: mdi:sun-clock
+  - name: Program 6 Time
+    class: ''
+    state_class: measurement
+    uom: ''
+    rule: 9
+    registers:
+    - 153
+    icon: mdi:sun-clock
+  - name: Program 1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 154
+    icon: mdi:sun-clock
+  - name: Program 2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 155
+    icon: mdi:sun-clock
+  - name: Program 3 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 156
+    icon: mdi:sun-clock
+  - name: Program 4 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 157
+    icon: mdi:sun-clock
+  - name: Program 5 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 158
+    icon: mdi:sun-clock
+  - name: Program 6 Power
+    class: power
+    state_class: measurement
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 159
+    icon: mdi:sun-clock
+  - name: Program 1 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 160
+    icon: mdi:sun-clock
+  - name: Program 2 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 161
+    icon: mdi:sun-clock
+  - name: Program 3 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 162
+    icon: mdi:sun-clock
+  - name: Program 4 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 163
+    icon: mdi:sun-clock
+  - name: Program 5 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 164
+    icon: mdi:sun-clock
+  - name: Program 6 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.01
+    rule: 1
+    registers:
+    - 165
+    icon: mdi:sun-clock
+  - name: Program 1 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 166
+    icon: mdi:sun-clock
+  - name: Program 2 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 167
+    icon: mdi:sun-clock
+  - name: Program 3 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 168
+    icon: mdi:sun-clock
+  - name: Program 4 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 169
+    icon: mdi:sun-clock
+  - name: Program 5 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 170
+    icon: mdi:sun-clock
+  - name: Program 6 SOC
+    class: ''
+    state_class: measurement
+    uom: '%'
+    rule: 1
+    registers:
+    - 171
+    icon: mdi:sun-clock
+  - name: Program 1 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 172
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Program 2 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 173
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Program 3 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 174
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Program 4 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 175
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Program 5 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 176
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Program 6 Charging
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 177
+    icon: mdi:sun-clock
+    lookup:
+    - key: 0
+      value: Disabled
+    - key: 1
+      value: Grid
+    - key: 2
+      value: Generator
+    - key: 3
+      value: Both
+  - name: Microinverter Export cut-off
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 178
+  - name: Off Grid
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 179
+  - name: Grid reconnection time
+    class: ''
+    uom: s
+    rule: 1
+    registers:
+    - 180
+  - name: Grid frequency
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 183
+    lookup:
+    - key: 0
+      value: 50 Hz
+    - key: 1
+      value: 60 Hz
+  - name: Grid voltage protection - high
+    class: voltage
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 185
+  - name: Grid voltage protection - low
+    class: voltage
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 186
+  - name: Grid frequency protection - high
+    class: frequency
+    uom: Hz
+    scale: 0.01
+    rule: 1
+    registers:
+    - 187
+  - name: Grid frequency protection - low
+    class: frequency
+    uom: Hz
+    scale: 0.01
+    rule: 1
+    registers:
+    - 188
+  - name: Generator Grid side
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 189
+  - name: Generator Peak shaving
+    class: power
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 190
+    icon: mdi:generator-stationary
+  - name: Grid Peak shaving
+    class: power
+    uom: W
+    scale: 1
+    rule: 1
+    registers:
+    - 191
+    icon: mdi:transmission-tower
+  - name: Grid Max Export power
+    class: power
+    uom: W
+    scale: 10
+    rule: 1
+    registers:
+    - 231
+  - name: Grid Max Import power
+    class: power
+    uom: W
+    scale: 10
+    rule: 1
+    registers:
+    - 233
+  - name: AC Coupling
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 234
+- group: BMS
+  items:
+  - name: Battery Alarm
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 220
+    icon: mdi:battery-alert
+  - name: Battery Fault
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 221
+    icon: mdi:battery-alert-variant
+  - name: Battery BMS Type
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 223
+    icon: mdi:battery
+    lookup:
+    - key: 0
+      value: PYLON
+    - key: 1
+      value: Tianbangda
+    - key: 2
+      value: KOK
+    - key: 3
+      value: Keith
+    - key: 4
+      value: Toppai
+    - key: 5
+      value: Peneng 485
+    - key: 6
+      value: Jeris 485
+    - key: 7
+      value: Sunwoda 485
+    - key: 8
+      value: Xinrui 485
+    - key: 9
+      value: Tianbangda 485
+    - key: 10
+      value: Shenggao Electric CAN
+- group: State
+  items:
+  - name: Device State
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 500
+    icon: mdi:state-machine
+    lookup:
+    - key: 0
+      value: Standby
+    - key: 1
+      value: Self-test
+    - key: 2
+      value: Normal
+    - key: 3
+      value: Alarm
+    - key: 4
+      value: Fault
+  - name: 'State '
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 551
+  - name: Device Relay
+    class: ''
+    uom: ''
+    rule: 1
+    registers:
+    - 552
+    icon: mdi:directions-fork
+    lookup:
+    - key: 0
+      value: 'Off'
+    - key:
+      - 1
+      - 3
+      value: Inverter
+    - key:
+      - 4
+      - 6
+      value: Grid
+    - key:
+      - 5
+      - 7
+      value: Inverter-Grid
+    - key: 8
+      value: Generator
+    - key:
+      - 9
+      - 11
+      value: Inverter-Gen
+    - key:
+      - 12
+      - 14
+      value: Grid-Generator
+    - key:
+      - 13
+      - 15
+      value: Inv-Grid-Gen
+    - key: default
+      value: Power Supply
+  - name: Device Fault
+    class: ''
+    uom: ''
+    rule: 3
+    registers:
+    - 555
+    - 556
+    - 557
+    - 558
+    icon: mdi:message-alert-outline
+- group: Output
+  items:
+  - name: Output L1 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 627
+  - name: Output L2 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 628
+  - name: Output L3 Voltage
+    class: voltage
+    state_class: measurement
+    uom: V
+    scale: 0.1
+    rule: 1
+    registers:
+    - 629
+  - name: Power
+    class: power
+    state_class: measurement
+    uom: W
+    rule: 4
+    registers:
+    - 636
+    - 694
+  - name: Output Frequency
+    class: frequency
+    state_class: measurement
+    uom: Hz
+    scale: 0.01
+    rule: 1
+    registers:
+    - 638
+- group: UPS
+  items:
+  - name: Load UPS L1 Power
+    class: power
+    state_class: measurement
+    uom: W
+    rule: 4
+    registers:
+    - 640
+    - 696
+    icon: mdi:home-lightning-bolt
+  - name: Load UPS L2 Power
+    class: power
+    state_class: measurement
+    uom: W
+    rule: 4
+    registers:
+    - 641
+    - 697
+    icon: mdi:home-lightning-bolt
+- group: Load
+  items:
+  - name: Load Frequency
+    class: frequency
+    state_class: measurement
+    uom: Hz
+    scale: 0.01
+    rule: 1
+    registers:
+    - 655
